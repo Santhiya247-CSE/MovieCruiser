@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+<table>
+    <tr>
+        <td>
+            <h1>Movie Cruiser</h1>
+        </td>
+    </tr>
+</table>
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    @Html.Label("UserName :")
+    @Html.TextBox("uname")<br />
+    @Html.Label("Password :")
+    @Html.Password("pwd")
+    @ViewBag.Message<br />
+    <button>Login</button>
+    <br />
+    @Html.ActionLink("New User?","Register","Home")
+}
+
+
