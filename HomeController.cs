@@ -13,7 +13,7 @@ namespace MovieCruiser.Controllers
         {
             return View();
         }
-
+      
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -52,15 +52,32 @@ namespace MovieCruiser.Controllers
 
 
         }
+        public ActionResult NewMovie(Movie mv)
+        {
+            try
+            {
+                Cruobj.movie.Add(mv);
+                Cruobj.SaveChanges();
+            }
+            catch { }
+        
+            return View();
+        }
         public ActionResult MovieAdmin()
         {
+            var mvadm = Cruobj.movie.ToList();
+            return View(mvadm);
            
-            return View();
         }
         public ActionResult MovieCustomer()
         {
-
+            var mvcust = Cruobj.movie.ToList();
+            return View(mvcust);
+        }
+        public ActionResult Edit()
+        {
           
+
             return View();
         }
 

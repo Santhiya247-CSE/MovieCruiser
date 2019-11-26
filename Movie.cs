@@ -22,6 +22,7 @@ namespace MovieCruiser
         [DisplayFormat(DataFormatString="{0:dd/MM/yyyy",ApplyFormatInEditMode =true)]
         public DateTime M_DateOfLaunch { get; set; }
         public genre Genre { get; set; }
+        public bool M_HasTeaser { get; set; }
         public Customer Customerid { get; set; }
 
     }
