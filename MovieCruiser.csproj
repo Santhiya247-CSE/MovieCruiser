@@ -136,6 +136,10 @@
     <Compile Include="Migrations\201911250918362_initialmodel.Designer.cs">
       <DependentUpon>201911250918362_initialmodel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911260601182_tr.cs" />
+    <Compile Include="Migrations\201911260601182_tr.Designer.cs">
+      <DependentUpon>201911260601182_tr.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Favorite.cs" />
@@ -184,6 +188,9 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\MovieAdmin.cshtml" />
     <Content Include="Views\Home\MovieCustomer.cshtml" />
+    <Content Include="Views\Home\NewMovie.cshtml" />
+    <Content Include="Views\Home\FavList.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -204,6 +211,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201911250918362_initialmodel.resx">
       <DependentUpon>201911250918362_initialmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911260601182_tr.resx">
+      <DependentUpon>201911260601182_tr.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
