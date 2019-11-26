@@ -4,4 +4,36 @@
 }
 
 <h2>  "Admin Login Success!!"</h2>
-
+@Html.ActionLink("Movies", "MovieListAdmin", "Home")
+@Html.ActionLink("New", "NewMovie", "Home")
+<table>
+    <h2>Movies</h2>
+    <tr>
+        <th>Title</th>
+        <th>Box office</th>
+        <th>Active</th>
+        <th>Date of Launch</th>
+        <th>Genre</th>
+        <th>Has Teaser?</th>
+        <th>Action</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+    <tr>
+        <td><br />@Html.Encode(item.M_Title)</td>
+        <td><br />$@Html.Encode(item.M_BoxOffice)</td>
+        <td><br />@Html.Encode(item.M_Active)</td>
+        <td><br />@item.M_DateOfLaunch.ToString("MM/dd/yyyy")</td>
+        <td><br />@Html.Encode(item.Genre)</td>
+        @if (item.M_HasTeaser == true)
+        {
+            <td><br />@Html.Encode("Yes")<br /></td>
+        }
+        @if (item.M_HasTeaser == false)
+        {
+            <td><br />@Html.Encode("No")<br /></td>
+        }
+        <td><br />@Html.ActionLink("Edit","Edit",new { id = item.M_Id })<br /></td>
+    </tr>
+    }
+</table>
