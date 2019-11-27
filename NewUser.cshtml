@@ -1,0 +1,25 @@
+﻿@model MovieCruiser.Customer
+@{
+    ViewBag.Title = "NewUser";
+}
+
+<h2>NewUser</h2>
+@Html.ActionLink("Login", "Login", "Home")
+
+@using (Html.BeginForm("NewUser", "Home"))
+{
+    @Html.LabelFor(m => m.Customerid)<br />
+    @Html.TextBoxFor(m => m.Customerid)
+    @Html.LabelFor(m => m.CustomerName)<br />
+    @Html.TextBoxFor(m => m.CustomerName)
+    @Html.LabelFor(m => m.DateofBirth)<br />
+    @Html.TextBoxFor(m => m.DateofBirth)
+    @Html.LabelFor(m =>m.Email)<br />
+    @Html.TextBoxFor(m => m.Email)
+    @Html.LabelFor(m=>m.Password)
+    @Html.PasswordFor(m=>m.Password)<br />
+    <button>Register</button>
+    @ViewBag.Message
+}
+
+

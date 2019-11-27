@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "MovieCustomerNotification";
+}
+
+<h2>MovieCustomerNotification</h2>
+@Html.ActionLink("Movies","MovieCustomer","Home")
+@Html.ActionLink("Favorites","CustomerFavList","Home")
+
+<table>
+    <tr>
+        <td>
+            <h2>Movies</h2>
+        </td>
+    </tr>
+    <tr><td style="color:green"><b>@ViewBag.Message</b></td></tr>
+    <tr>
+        <th><br />Title</th>
+        <th><br />Box Office</th>
+        <th><br />Genre</th>
+        <th><br />Has Teaser?</th>
+        <th><br />Action</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+    <tr>
+        <td><br />@Html.Encode(item.M_Title)</td>
+        <td><br />$@Html.Encode(item.M_BoxOffice)</td>
+        <td><br />@Html.Encode(item.Genre)</td>
+        @if (item.M_HasTeaser == true)
+        {
+            <td><br />@Html.Encode("Yes")</td>
+        }
+        @if (item.M_HasTeaser == false)
+        {
+            <td><br />@Html.Encode("No")</td>
+        }
+        <td><br />@Html.ActionLink("Add to Favorites","FavListSuccess",new { id = item.M_Id })</td>
+    </tr>
+    }
+</table>
+

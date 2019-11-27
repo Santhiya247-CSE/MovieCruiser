@@ -1,0 +1,12 @@
+﻿@model MovieCruiser.Favorite
+@{
+    ViewBag.Title = "FavListEmpty";
+}
+
+<h2>FavListEmpty</h2>
+@Html.ActionLink("Movies","MovieCustomer","Home")
+@Html.ActionLink("Favorites","CustomerFavList","Home")
+<h4>Oops!!</h4>
+<h3> No Items in Favorites.</h3>
+Click here @Html.ActionLink("Movies","MovieCustomer","Home") to navigate to Add to favorites Option.
+

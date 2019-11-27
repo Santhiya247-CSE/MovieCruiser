@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "FavNotification";
+}
+
+@Html.ActionLink("Movies", "MovieCustomer", "Home")
+@Html.ActionLink("Favorites", "CustomerFavList", "Home")
+<h2>Favorites</h2>
+<table>
+    <tr>
+        <td style="color:green">
+            <b>
+                @ViewBag.Message
+            </b>
+        </td>
+    </tr>
+    <tr>
+        <th><br />Title</th>
+        <th><br />Bocx Office</th>
+        <th><br />Genre</th>
+        <th><br /></th>
+    </tr>
+    @foreach(var item in Model)
+    {
+    <tr>
+        <td><br />@Html.Encode(item.M_Title)</td>
+        <td><br />$@Html.Encode(item.M_Boxoffice)</td>
+        <td><br />@Html.Encode(item.Genre)</td>
+        <td><br />@Html.ActionLink("Delete","DeleteFavMovie",new { id = item.M_Id })</td>
+    </tr>
+    }
+</table>
+<b><br />No. Of Favorites :</b>@ViewBag.Message
