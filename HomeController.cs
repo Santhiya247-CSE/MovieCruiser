@@ -179,5 +179,10 @@ namespace MovieCruiser.Controllers
             ViewBag.Message = "Movie Removed from Favorites:(";
             return View(favlist);
         }
+        public ActionResult Logout()
+        {
+          
+            return View();
+        }
     }
 }
