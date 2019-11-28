@@ -2,24 +2,43 @@
 @{
     ViewBag.Title = "NewUser";
 }
+<head>
+    <style>
+        #table1 {
+            background-color: white;
+            padding: 25px 25px;
+            font-size: 150%;
+            width: 100%;
+            text-align: "left";
+        }
+    </style>
+</head>
 
-<h2>NewUser</h2>
 @Html.ActionLink("Login", "Login", "Home")
 
 @using (Html.BeginForm("NewUser", "Home"))
 {
-    @Html.LabelFor(m => m.Customerid)<br />
-    @Html.TextBoxFor(m => m.Customerid)
-    @Html.LabelFor(m => m.CustomerName)<br />
-    @Html.TextBoxFor(m => m.CustomerName)
-    @Html.LabelFor(m => m.DateofBirth)<br />
+<table id="table1">
+    <tr>
+        <td> @Html.LabelFor(m => m.Customerid)</td> <br />
+        @Html.TextBoxFor(m => m.Customerid)
+    </tr>
+    <tr> 
+        <td>@Html.LabelFor(m => m.CustomerName)</td>
+    <br />
+    @Html.TextBoxFor(m => m.CustomerName)        </tr>
+    @Html.LabelFor(m => m.DateofBirth)
+    <br />
     @Html.TextBoxFor(m => m.DateofBirth)
-    @Html.LabelFor(m =>m.Email)<br />
+    @Html.LabelFor(m => m.Email)
+    <br />
     @Html.TextBoxFor(m => m.Email)
-    @Html.LabelFor(m=>m.Password)
-    @Html.PasswordFor(m=>m.Password)<br />
+    @Html.LabelFor(m => m.Password)
+    @Html.PasswordFor(m => m.Password)
+    <br />
     <button>Register</button>
     @ViewBag.Message
+</table>
 }
 
 

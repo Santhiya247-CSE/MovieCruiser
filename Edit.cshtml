@@ -3,73 +3,84 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<head>
+    <style>
+        #table1 {
+            background-color: white;
+            padding: 25px 25px;
+            font-size: 150%;
+            width: 100%;
+            text-align: "left";
+        }
+    </style>
+</head>
 @Html.ActionLink("Movies", "MovieAdmin", "Home")
-
+@Html.ActionLink("Logout", "Logout", "Home")
 @using (Html.BeginForm("Edit", "Home"))
+
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(m => m.M_Id)
-<table>
-    <tr>
-        <td>
-            <br />
-            @Html.LabelFor(m => m.M_Title)
-            <br />
-            @Html.TextBoxFor(m => m.M_Title)
+    <table id="table1">
+        <tr>
+            <td>
+                <br />
+                @Html.LabelFor(m => m.M_Title)
+                <br />
+                @Html.TextBoxFor(m => m.M_Title)
 
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            @Html.LabelFor(m => m.M_BoxOffice)
-            @Html.TextBoxFor(m => m.M_BoxOffice)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+                @Html.LabelFor(m => m.M_BoxOffice)
+                @Html.TextBoxFor(m => m.M_BoxOffice)
 
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            @Html.LabelFor(m => m.M_Active)
-            <br />
-            @Html.RadioButtonFor(m => m.M_Active, "Yes")Yes
-            @Html.RadioButtonFor(m => m.M_Active, "No")No
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+                @Html.LabelFor(m => m.M_Active)
+                <br />
+                @Html.RadioButtonFor(m => m.M_Active, "Yes")Yes
+                @Html.RadioButtonFor(m => m.M_Active, "No")No
 
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            @Html.LabelFor(m => m.M_DateOfLaunch)
-            <br />
-            @Html.TextBoxFor(m => m.M_DateOfLaunch)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+                @Html.LabelFor(m => m.M_DateOfLaunch)
+                <br />
+                @Html.TextBoxFor(m => m.M_DateOfLaunch)
 
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            @Html.LabelFor(m => m.Genre)
-            <br />
-            @Html.DropDownListFor(m => m.Genre, new SelectList(Enum.GetValues(typeof(genre))))
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+                @Html.LabelFor(m => m.Genre)
+                <br />
+                @Html.DropDownListFor(m => m.Genre, new SelectList(Enum.GetValues(typeof(genre))))
 
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            @Html.CheckBoxFor(m => m.M_HasTeaser, true)Has Teaser?
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+                @Html.CheckBoxFor(m => m.M_HasTeaser, true)Has Teaser?
 
 
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <button>Save</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button>Save</button>
 
-        </td>
-    </tr>
-</table>
-    }
+            </td>
+        </tr>
+    </table>
+}
 

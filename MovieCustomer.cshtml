@@ -2,16 +2,25 @@
 @{
     ViewBag.Title = "MovieCustomer";
 }
-
+<head>
+    <style>
+        #table1 {
+            background-color: white;
+            padding: 25px 25px;
+            font-size: 100%;
+            width: 100%;
+            text-align: "left";
+        }
+    </style>
+</head>
 <h2>"Customer Login Success!!"</h2>
 @Html.ActionLink("Movies", "MovieCustomer", "Home")
 @Html.ActionLink("Favorites", "MovieCustomer", "Home")
-<table>
+<table id="table1">
     <h2>Movies</h2>
     <tr>
         <th>Title</th>
         <th>Box office</th>
-        <th>Active</th>
         <th>Genre</th>
         <th>Has Teaser?</th>
         <th>Action</th>

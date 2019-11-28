@@ -5,8 +5,11 @@
 
 <h2>NewMovie</h2>
 @Html.ActionLink("Movies", "MovieAdmin", "Home")
+@Html.ActionLink("Logout", "Logout", "Home")
+
 @using (Html.BeginForm("NewMovie", "Home"))
 {
+
     <h1>Add New Movie</h1>
     @Html.LabelFor(m => m.M_Title)
     @Html.TextBoxFor(m => m.M_Title)
@@ -14,8 +17,9 @@
     @Html.LabelFor(m => m.M_BoxOffice)
     @Html.TextBoxFor(m => m.M_BoxOffice)
     <br />
-    @Html.LabelFor(m => m.M_Active)<br /><h5>Yes</h5>
-    @Html.RadioButtonFor(m => m.M_Active, "Yes") 
+    @Html.LabelFor(m => m.M_Active)<br />
+    <h5>Yes</h5>
+    @Html.RadioButtonFor(m => m.M_Active, "Yes")
     @Html.RadioButtonFor(m => m.M_Active, "No")
     <br />
     @Html.LabelFor(m => m.M_DateOfLaunch)

@@ -3,24 +3,41 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
-<table>
+
+<table align="left" border="0">
     <tr>
-        <td>
-            <h1>Movie Cruiser</h1>
-        </td>
-    </tr>
+        
+
+        <br />
+        <br />
+        <br />
+        <br />
+
+
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+        {
+        <table>
+            @Html.Label("UserName  ")&nbsp;
+            @Html.TextBox("uname")&nbsp;
+            <br />
+            <br />
+            @Html.Label("Password  ")&nbsp;
+
+            @Html.Password("pwd")&nbsp;
+            <br />
+            @ViewBag.Message
+            <br />
+            &nbsp;&nbsp;
+            &nbsp;&nbsp;
+            &nbsp;&nbsp;
+            &nbsp;
+            &nbsp;
+            <button>Login</button>
+            <br />
+        </table>
+                <br />
+            @Html.ActionLink("New User?", "NewUser", "Home")
+
+        }
+
 </table>
-@using (Html.BeginForm("Login", "Home", FormMethod.Post))
-{
-    @Html.Label("UserName :")
-    @Html.TextBox("uname")<br />
-    @Html.Label("Password :")
-    @Html.Password("pwd")
-    @ViewBag.Message<br />
-    <button>Login</button>
-    <br />
-    @Html.ActionLink("New User?","NewUser","Home")
-}
-
-
