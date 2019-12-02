@@ -14,7 +14,7 @@ namespace MovieCruiser
         public string M_Title { get; set; }
         public string M_Boxoffice { get; set; }
         public genre Genre { get; set; }
-        public Customer Customerid { get; set; }
+        public int Custid { get; set; }
 
     }
 }
