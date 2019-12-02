@@ -8,7 +8,7 @@
         #table1 {
             background-color: white;
             padding: 25px 25px;
-            font-size: 150%;
+            font-size: 125%;
             width: 100%;
             text-align: "left";
         }
@@ -21,64 +21,67 @@
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(m => m.M_Id)
-    <table id="table1">
+    <table id="table1" border="0">
         <tr>
             <td>
                 <br />
                 @Html.LabelFor(m => m.M_Title)
-                <br />
+                <br /> 
                 @Html.TextBoxFor(m => m.M_Title)
-
+                <br /> <br />
             </td>
         </tr>
         <tr>
             <td>
-                <br />
+                 <br />
                 @Html.LabelFor(m => m.M_BoxOffice)
+                <br /> 
                 @Html.TextBoxFor(m => m.M_BoxOffice)
-
+                <br /> 
             </td>
         </tr>
         <tr>
             <td>
-                <br />
+                <br /> <br />
                 @Html.LabelFor(m => m.M_Active)
-                <br />
+                <br />  
                 @Html.RadioButtonFor(m => m.M_Active, "Yes")Yes
                 @Html.RadioButtonFor(m => m.M_Active, "No")No
-
+                <br />
             </td>
         </tr>
         <tr>
             <td>
-                <br />
+                <br /> <br />
                 @Html.LabelFor(m => m.M_DateOfLaunch)
-                <br />
+                <br /> 
                 @Html.TextBoxFor(m => m.M_DateOfLaunch)
-
+                <br />
             </td>
         </tr>
         <tr>
             <td>
-                <br />
+                <br /> <br />
                 @Html.LabelFor(m => m.Genre)
                 <br />
                 @Html.DropDownListFor(m => m.Genre, new SelectList(Enum.GetValues(typeof(genre))))
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br /><b>Has Teaser?</b>
+                @Html.CheckBoxFor(m => m.M_HasTeaser, true)
+                <br />
+
 
             </td>
         </tr>
         <tr>
             <td>
                 <br />
-                @Html.CheckBoxFor(m => m.M_HasTeaser, true)Has Teaser?
-
-
-            </td>
-        </tr>
-        <tr>
-            <td>
                 <button>Save</button>
-
+                <br />
             </td>
         </tr>
     </table>

@@ -34,15 +34,18 @@ namespace MovieCruiser.Controllers
         [HttpPost]
         public ActionResult Login(FormCollection form, Customer c)
         {
-            var usrname = form["uname"];
+            Session["Id"] = form["uname"].ToString();
+            var usrname = int.Parse(Session["Id"].ToString());
             var passwd = form["pwd"];
-            if (usrname == "San" && passwd == "san247")
+            if (int.Parse(Session["Id"].ToString()) == 765025 && passwd == "san247")
             {
                 return RedirectToAction("MovieAdmin");
             }
-            else if (usrname == "Customer" && passwd == "cust123")
+            var name = Cruobj.customer.Where(x => x.Customerid == usrname).FirstOrDefault();
+            var pass = Cruobj.customer.Where(x => x.Password == passwd).FirstOrDefault(); 
+            if(name!=null && pass != null)
             {
-                return RedirectToAction("MovieCustomer");
+                return RedirectToAction("MovieCustomer", new { usrname = int.Parse(Session["Id"].ToString()) });
             }
             else
             {
@@ -58,6 +61,7 @@ namespace MovieCruiser.Controllers
             {
                 Cruobj.movie.Add(mv);
                 Cruobj.SaveChanges();
+                ViewBag.Message = "New Movie Added Successfully!!";
             }
             catch { }
         
@@ -108,9 +112,12 @@ namespace MovieCruiser.Controllers
         }
         public ActionResult CustomerFavList()
         {
-            var fav = Cruobj.favorite.ToList();
-            int i = Cruobj.favorite.Count();
-            if(i==0)
+
+            var id = int.Parse(Session["Id"].ToString());
+            var  fav = Cruobj.favorite.Where(x => x.Custid == id).ToList();
+                int i = Cruobj.favorite.Where(x => x.Custid == id).Count();
+
+            if (i == 0)
             {
                 return RedirectToAction("FavListEmpty");
             }
@@ -119,6 +126,8 @@ namespace MovieCruiser.Controllers
                 ViewBag.Message = i;
             }
             return View(fav);
+            
+            
         }
         public ActionResult FavListEmpty()
         {
@@ -135,12 +144,14 @@ namespace MovieCruiser.Controllers
                 var ml = Cruobj.movie.Where(x => x.M_Id == id).FirstOrDefault();
                 var fav = new Favorite
                 {
+                    F_id=ml.M_Id,
                     M_Id = ml.M_Id,
                     M_Title = ml.M_Title,
                     M_Boxoffice = ml.M_BoxOffice,
-                    Genre = ml.Genre
+                    Genre = ml.Genre,
+                    Custid= int.Parse(Session["Id"].ToString())
 
-                };
+            };
                 Cruobj.favorite.Add(fav);
                 Cruobj.SaveChanges();
             }
@@ -155,19 +166,18 @@ namespace MovieCruiser.Controllers
         }
         public ActionResult DeleteFavMovie(int id)
         {
-            try
-            {
+            
                 var cust = Cruobj.favorite.Where(f => f.M_Id == id).FirstOrDefault();
                 Cruobj.favorite.Remove(cust);
                 Cruobj.SaveChanges();
-            }
-            catch { }
+            
             return RedirectToAction("FavNotification");
         }
         public ActionResult FavNotification()
         {
-            var favlist = Cruobj.favorite.ToList();
-            int cnt = Cruobj.favorite.Count();
+            var id = int.Parse(Session["Id"].ToString());
+            var favlist = Cruobj.favorite.Where(x=>x.Custid==id).ToList();
+            int cnt = Cruobj.favorite.Where(x=>x.Custid==id).Count();
             if(cnt==0)
             {
                 return RedirectToAction("FavListEmpty");

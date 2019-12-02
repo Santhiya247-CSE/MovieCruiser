@@ -3,35 +3,41 @@
     ViewBag.Title = "NewMovie";
 }
 
-<h2>NewMovie</h2>
+
+
 @Html.ActionLink("Movies", "MovieAdmin", "Home")
 @Html.ActionLink("Logout", "Logout", "Home")
+<br />
+<br />
+<h2><b><font color="green"> @ViewBag.Message</b></font></h2>
 
 @using (Html.BeginForm("NewMovie", "Home"))
 {
+    <br />
 
-    <h1>Add New Movie</h1>
-    @Html.LabelFor(m => m.M_Title)
+    @Html.LabelFor(m => m.M_Title) <br /><br />
     @Html.TextBoxFor(m => m.M_Title)
-    <br />
-    @Html.LabelFor(m => m.M_BoxOffice)
+    <br /><br />
+    @Html.LabelFor(m => m.M_BoxOffice) <br /><br />
     @Html.TextBoxFor(m => m.M_BoxOffice)
-    <br />
-    @Html.LabelFor(m => m.M_Active)<br />
-    <h5>Yes</h5>
+    <br /><br />
+    @Html.LabelFor(m => m.M_Active)<br /><br />
     @Html.RadioButtonFor(m => m.M_Active, "Yes")
+    <h5>Yes</h5>
     @Html.RadioButtonFor(m => m.M_Active, "No")
+    <h5>No</h5>
     <br />
-    @Html.LabelFor(m => m.M_DateOfLaunch)
+    @Html.LabelFor(m => m.M_DateOfLaunch) <br /><br />
     @Html.TextBoxFor(m => m.M_DateOfLaunch)
-    <br />
-    @Html.LabelFor(m => m.Genre)
+    <br /><br />
+    @Html.LabelFor(m => m.Genre) <br /><br />
     @Html.DropDownListFor(m => m.Genre, new SelectList(Enum.GetValues(typeof(genre))))
-    <br />
+    <br /><br />
     <h5>Has Teaser?</h5>
     @Html.CheckBoxFor(m => m.M_HasTeaser, true)
-    <br />
+    <br /><br />
     <button>Add New</button>
+
 
 }
 
