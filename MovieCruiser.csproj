@@ -140,6 +140,18 @@
     <Compile Include="Migrations\201911260601182_tr.Designer.cs">
       <DependentUpon>201911260601182_tr.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911291221541_second.cs" />
+    <Compile Include="Migrations\201911291221541_second.Designer.cs">
+      <DependentUpon>201911291221541_second.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911291226390_seconds.cs" />
+    <Compile Include="Migrations\201911291226390_seconds.Designer.cs">
+      <DependentUpon>201911291226390_seconds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912020855103_third.cs" />
+    <Compile Include="Migrations\201912020855103_third.Designer.cs">
+      <DependentUpon>201912020855103_third.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Favorite.cs" />
@@ -189,8 +201,16 @@
     <Content Include="Views\Home\MovieAdmin.cshtml" />
     <Content Include="Views\Home\MovieCustomer.cshtml" />
     <Content Include="Views\Home\NewMovie.cshtml" />
-    <Content Include="Views\Home\FavList.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\EditMovieStatus.cshtml" />
+    <Content Include="Views\Home\NewUser.cshtml" />
+    <Content Include="Views\Home\CustomerFavList.cshtml" />
+    <Content Include="Views\Home\FavListEmpty.cshtml" />
+    <Content Include="Views\Home\FavListSuccess.cshtml" />
+    <Content Include="Views\Home\MovieCustomerNotification.cshtml" />
+    <Content Include="Views\Home\FavNotification.cshtml" />
+    <Content Include="Views\Home\DeleteFavMovie.cshtml" />
+    <Content Include="Views\Home\Logout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -214,6 +234,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911260601182_tr.resx">
       <DependentUpon>201911260601182_tr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911291221541_second.resx">
+      <DependentUpon>201911291221541_second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911291226390_seconds.resx">
+      <DependentUpon>201911291226390_seconds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912020855103_third.resx">
+      <DependentUpon>201912020855103_third.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
