@@ -4,7 +4,7 @@
 }
 <head>
     <style>
-        #table1 {
+        table1 {
             background-color: white;
             padding: 25px 25px;
             font-size: 150%;
@@ -18,27 +18,30 @@
 
 @using (Html.BeginForm("NewUser", "Home"))
 {
-<table id="table1">
-    <tr>
-        <td> @Html.LabelFor(m => m.Customerid)</td> <br />
-        @Html.TextBoxFor(m => m.Customerid)
-    </tr>
-    <tr> 
-        <td>@Html.LabelFor(m => m.CustomerName)</td>
+
+    <br /><br />
+
+    @Html.LabelFor(m => m.Customerid)<br />
+    @Html.TextBoxFor(m => m.Customerid)<br />
     <br />
-    @Html.TextBoxFor(m => m.CustomerName)        </tr>
-    @Html.LabelFor(m => m.DateofBirth)
-    <br />
-    @Html.TextBoxFor(m => m.DateofBirth)
-    @Html.LabelFor(m => m.Email)
-    <br />
-    @Html.TextBoxFor(m => m.Email)
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
-    <br />
-    <button>Register</button>
+    @Html.LabelFor(m => m.CustomerName)<br /><br />
+
+    @Html.TextBoxFor(m => m.CustomerName)<br /><br />
+
+    @Html.LabelFor(m => m.DateofBirth)<br /><br />
+
+    @Html.TextBoxFor(m => m.DateofBirth)<br /><br />
+
+    @Html.LabelFor(m => m.Email)<br /><br />
+
+    @Html.TextBoxFor(m => m.Email)<br /><br />
+
+    @Html.LabelFor(m => m.Password)<br /><br />
+    @Html.PasswordFor(m => m.Password)<br /><br />
+    <br /><br />
+    <button>Register</button><br />
     @ViewBag.Message
-</table>
+
 }
 
 

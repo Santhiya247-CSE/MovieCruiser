@@ -2,38 +2,44 @@
 @{
     ViewBag.Title = "MovieCustomerNotification";
 }
-
-<h2>MovieCustomerNotification</h2>
+<head>
+    <style>
+        .table1 {
+            background-color: white;
+            padding: 25px 25px;
+            border-color: white;
+            width: 100%;
+            text-align: "left";
+            column-span:all;
+        }
+    </style>
+</head>
 @Html.ActionLink("Movies","MovieCustomer","Home")
 @Html.ActionLink("Favorites","CustomerFavList","Home")
-
-<table>
+<br /><br />
+      <font style="color:green"><b>@ViewBag.Message</b></font>
+<br /><br />
+<table id="table1" border="0">
     <tr>
-        <td>
-            <h2>Movies</h2>
-        </td>
-    </tr>
-    <tr><td style="color:green"><b>@ViewBag.Message</b></td></tr>
-    <tr>
-        <th><br />Title</th>
-        <th><br />Box Office</th>
-        <th><br />Genre</th>
-        <th><br />Has Teaser?</th>
-        <th><br />Action</th>
+        <th>Title&nbsp;&nbsp;&nbsp;</th>
+        <th>Box Office&nbsp;&nbsp;&nbsp;</th>
+        <th>Genre&nbsp;&nbsp;&nbsp;</th>
+        <th>Has Teaser?&nbsp;&nbsp;&nbsp;</th>
+        <th>Action&nbsp;&nbsp;&nbsp;</th>
     </tr>
     @foreach(var item in Model)
     {
     <tr>
-        <td><br />@Html.Encode(item.M_Title)</td>
-        <td><br />$@Html.Encode(item.M_BoxOffice)</td>
-        <td><br />@Html.Encode(item.Genre)</td>
+        <td><br />@Html.Encode(item.M_Title)&nbsp;&nbsp;&nbsp;</td>
+        <td><br />$@Html.Encode(item.M_BoxOffice)&nbsp;&nbsp;&nbsp;</td>
+        <td><br />@Html.Encode(item.Genre)&nbsp;&nbsp;&nbsp;</td>
         @if (item.M_HasTeaser == true)
         {
-            <td><br />@Html.Encode("Yes")</td>
+        <td><br />@Html.Encode("Yes")&nbsp;&nbsp;&nbsp;</td>
         }
         @if (item.M_HasTeaser == false)
         {
-            <td><br />@Html.Encode("No")</td>
+        <td><br />@Html.Encode("No")&nbsp;&nbsp;&nbsp;</td>
         }
         <td><br />@Html.ActionLink("Add to Favorites","FavListSuccess",new { id = item.M_Id })</td>
     </tr>

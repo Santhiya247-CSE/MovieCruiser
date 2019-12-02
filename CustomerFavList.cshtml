@@ -2,26 +2,40 @@
 @{
     ViewBag.Title = "CustomerFavList";
 }
-
-<h2>CustomerFavList</h2>
+<head>
+    <style>
+        .table1 {
+            background-color: white;
+            padding: 25px 25px;
+            border-color:white;
+            width: 100%;
+            text-align: "left";
+        }
+    </style>
+</head>
+<h2>My Favorite Movies</h2>
+<br />
 @Html.ActionLink("Movies","MovieCustomer","Home")
 @Html.ActionLink("Favorites","CustomerFavList","Home")
-<table>
+</br><br />
+<table id="table1" border="0">
     <tr>
-        <th><br />Title</th>
-        <th><br />Box Office</th>
-        <th><br />Genre</th>
-        <th><br /></th>
+        <th> Title&nbsp;&nbsp;&nbsp;</th>
+        <th>Box Office&nbsp;&nbsp;&nbsp;</th>
+        <th>Genre&nbsp;&nbsp;&nbsp;</th>
+        <th> Action</th>
+    </tr>
         @foreach (var item in Model)
 
         {<tr>
-            <td><br />@Html.Encode(item.M_Title)</td>
-            <td><br />@Html.Encode(item.M_Boxoffice)</td>
-            <td><br />@Html.Encode(item.Genre)</td>
+             <td><br />@Html.Encode(item.M_Title)&nbsp;&nbsp;&nbsp;</td>
+             <td><br />@Html.Encode(item.M_Boxoffice)&nbsp;&nbsp;&nbsp;&nbsp;</td>
+             <td><br />@Html.Encode(item.Genre)&nbsp;&nbsp;&nbsp;</td>
             <td><br />@Html.ActionLink("Delete","DeleteFavMovie",new { id = item.M_Id })</td>
         </tr>
         }
-    </tr>
+ 
 </table>
-<b>No. of Favorites :</b>@ViewBag.Message
+<br />
+<font style="color:green"><b>No. of Favorites : </b>@ViewBag.Message</font>
 

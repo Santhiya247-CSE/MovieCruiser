@@ -13,9 +13,10 @@
         }
     </style>
 </head>
-<h2>"Customer Login Success!!"</h2>
+<h2><b><font color="green"> Customer Login Success!!</b></font></h2>
+
 @Html.ActionLink("Movies", "MovieCustomer", "Home")
-@Html.ActionLink("Favorites", "MovieCustomer", "Home")
+@Html.ActionLink("Favorites", "CustomerFavList", "Home")
 <table id="table1">
     <h2>Movies</h2>
     <tr>
@@ -39,7 +40,7 @@
             {
                 <td><br />@Html.Encode("No")<br /></td>
             }
-            <td><br />@Html.ActionLink("Add to Favorites", "CustomerFavList", new { id = item.M_Id })<br /></td>
+            <td><br />@Html.ActionLink("Add to Favorites", "FavListSuccess", new { id = item.M_Id })<br /></td>
         </tr>
     }
 </table>
