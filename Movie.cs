@@ -23,7 +23,7 @@ namespace MovieCruiser
         public DateTime M_DateOfLaunch { get; set; }
         public genre Genre { get; set; }
         public bool M_HasTeaser { get; set; }
-        public Customer Customerid { get; set; }
+     //   public Customer Customerid { get; set; }
 
     }
     public enum genre
